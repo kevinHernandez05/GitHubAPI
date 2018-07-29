@@ -10,9 +10,9 @@ Proyecto Final para el curso de de Desarrollo de Aplicaciones Móviles con Andro
 
 ## Plugins usados
 
-- [x] retrofit2
-- [x] glide
-- [x] Picasso
+- [x] Retrofit2
+- [x] Glide
+- [x] ~Picasso~
 - [x] Gson
 
 ## Screenshots
