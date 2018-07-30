@@ -9,6 +9,7 @@ import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -45,7 +46,14 @@ public class DetailActivity extends AppCompatActivity {
                 .placeholder(R.drawable.load)
                 .into(imageView);
 
-        getSupportActionBar().setTitle("Details Activity");
+        getSupportActionBar().setTitle("Perfil de " + getIntent().getExtras().getString("login"));
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewProfileImage();
+            }
+        });
     }
 
     private Intent createShareForcastIntent(){
@@ -65,5 +73,12 @@ public class DetailActivity extends AppCompatActivity {
         MenuItem menuItem = menu.findItem(R.id.action_share);
         menuItem.setIntent(createShareForcastIntent());
         return true;
+    }
+
+    private void viewProfileImage(){
+        String imageURL = getIntent().getExtras().getString("avatar_url");
+        Intent intent = new Intent(this, imageActivity.class);
+        intent.putExtra("ImageURL",imageURL);
+        startActivity(intent);
     }
 }
